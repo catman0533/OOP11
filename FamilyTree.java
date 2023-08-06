@@ -8,35 +8,34 @@ import java.io.Serializable;
 
 
 
-class FamilyTree implements Iterable<Person> , Serializable{
-    private List<Person> people;
+class FamilyTree< T extends FamilyMember> implements Iterable<T> , Serializable{
+    private List<T> people;
 
     public FamilyTree() {
         this.people = new ArrayList<>();
     }
 
-    public void addPerson(Person person) {
+    public void addPerson(T person) {
         people.add(person);
     }
 
-    public Person getPerson(int index) {
+    public T getPerson(int index) {
         return people.get(index);
     }
 
-    public List<Person> getPeople() {
+    public List<T> getPeople() {
         return people;
     }
 
     public void sortByName() {
-        people.sort(Comparator.comparing(Person::getName));
+        people.sort(Comparator.comparing(T::getName));
     }
 
     public void sortByBirthDate() {
-        people.sort(Comparator.comparing(Person::getBirthDate));
+        people.sort(Comparator.comparing(T::getBirthDate));
     }
-
     @Override
-    public Iterator<Person> iterator() {
+    public Iterator<T> iterator() {
         return people.iterator();
     }
 }

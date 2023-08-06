@@ -1,3 +1,7 @@
-public class FileMember {
-    
+
+public interface FamilyMember {
+    String getName();
+    int getAge();
+    int getBirthDate();
+   
 }

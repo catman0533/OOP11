@@ -3,7 +3,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        FamilyTree familyTree = new FamilyTree();
+        FamilyTree<FamilyMember> familyTree = new FamilyTree<>();
 
         Person person1 = new Person("John", "Male", "01-01-1980", "N/A");
         Person person2 = new Person("Amy", "Female", "05-03-1985", "N/A");

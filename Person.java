@@ -1,11 +1,13 @@
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 // import java.util.Comparator;
 // import java.util.Iterator;
 import java.util.List;
 
-class Person implements Serializable {
+class Person implements FamilyMember, Serializable {
     private String name;
     private String gender;
     private String birthDate;
@@ -62,5 +64,19 @@ class Person implements Serializable {
                 ", birthDate='" + birthDate + '\'' +
                 ", deathDate='" + deathDate + '\'' +
                 '}';
+    }@Override
+    public int getAge() {
+        LocalDate currentDate = LocalDate.now();
+        
+        // Assuming birthDate is in "YYYY-MM-DD" format
+        LocalDate birthLocalDate = LocalDate.parse(birthDate);
+        
+        if (deathDate != null) {
+            // Assuming deathDate is in "YYYY-MM-DD" format
+            LocalDate deathLocalDate = LocalDate.parse(deathDate);
+            return Period.between(birthLocalDate, deathLocalDate).getYears();
+        } else {
+            return Period.between(birthLocalDate, currentDate).getYears();
+        }
     }
 }
