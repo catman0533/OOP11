@@ -77,6 +77,7 @@ class Person implements FamilyMember, Serializable {
             return Period.between(birthLocalDate, deathLocalDate).getYears();
         } else {
             return Period.between(birthLocalDate, currentDate).getYears();
-        }
+        } 
     }
 }
+    
