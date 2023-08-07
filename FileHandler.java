@@ -4,7 +4,7 @@ import java.io.*;
 
 public class FileHandler {
     public static void main(String[] args) {
-        FamilyTree familyTree = new FamilyTree(); // Ваш класс, который вы хотите сериализовать
+        FamilyTree<FamilyMember> familyTree = new FamilyTree<>(); // Ваш класс, который вы хотите сериализовать
 
         // Сериализация объекта
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(
@@ -19,7 +19,8 @@ public class FileHandler {
         // Десериализация объекта
         try (ObjectInputStream objectInputStream = new ObjectInputStream(
                 new FileInputStream("familytree.out"))) {
-            FamilyTree familyTreeRestored = (FamilyTree) objectInputStream.readObject();
+                    @SuppressWarnings("unchecked")        
+            FamilyTree<FamilyMember>familyTreeRestored = (FamilyTree<FamilyMember>) objectInputStream.readObject();
             System.out.println("Объект успешно десериализован:");
             System.out.println("familyTreeRestored: " + familyTreeRestored);
         } catch (IOException | ClassNotFoundException e) {

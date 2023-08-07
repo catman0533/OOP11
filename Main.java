@@ -36,13 +36,13 @@ public class Main {
 
         familyTree.sortByName();
         System.out.println("Отсортированный список людей по имени:");
-        for (Person person : familyTree) {
+        for (FamilyMember person : familyTree) {
             System.out.println(person);
         }
 
         familyTree.sortByBirthDate();
         System.out.println("Отсортированный список людей по дате рождения:");
-        for (Person person : familyTree) {
+        for (FamilyMember person : familyTree) {
             System.out.println(person);
         }
     }
